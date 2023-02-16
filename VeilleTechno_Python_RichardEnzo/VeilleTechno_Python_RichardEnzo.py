@@ -1,23 +1,23 @@
 from random import randint
 
-#Liste des options
+#Liste des choix possibles
 jeu  = ["pierre", "papier", "ciseaux"]
 
-#Attribuer une option aléatoire à l'ordinateur
+#L'ordinateur va venir prendre un choix aléatoires entre les 3
 ordinateur = jeu[randint(0,2)]
 
-#Gardez le compte des points
+#On initialise le compteur
 Pointsjoueur = 0
 Pointsordinateur = 0
 
 continuer = True
 
-#La boucle continue jusqu'à ce que la variable continuer est fausse
+#tant que le joueur n'a pas écris 'Fin' alors le jeu continue
 while(continuer):
     #Demander le choix de l'ordinateur<br>
     joueur = input("pierre, papier, ciseaux? ou tapez Fin pour arrêter le jeu!\n")
 
-    #Vérification des scenarios
+    #On vient créer nos scénarios possibles
     if(joueur == 'Fin'):
         continuer = False
     elif(joueur == ordinateur):
@@ -34,22 +34,22 @@ while(continuer):
             print("Perdu!", ordinateur, "coupe", joueur)
             Pointsordinateur = Pointsordinateur + 1
         else:
-            print("You win!", joueur, "recouvre", ordinateur)
+            print("Gagné!", joueur, "recouvre", ordinateur)
             Pointsjoueur = Pointsjoueur + 1
     elif(joueur == "ciseaux"):
-        if(ordinateur == "Rock"):
+        if(ordinateur == "Pierre"):
             print("Perdu...", ordinateur, "écrase", joueur)
             Pointsordinateur = Pointsordinateur + 1
         else:
-            print("Gagné!", joueur, "cut", ordinateur)
+            print("Gagné!", joueur, "coupe", ordinateur)
             Pointsjoueur = Pointsjoueur + 1
     else:
         print("Votre choix n'est pas correct, vérifiez l'orthographe!")
-    #Attribuer une option aléatoire à l'ordinateur
+    #L'ordinateur ici va choisir son prochain choix
     ordinateur = jeu[randint(0,2)]
     print('********Tour suivant********')
 
-#Impression des points
+#Fin de la partie on attribue les points à chacun
 print("********Points********")
 print("joueur: ", Pointsjoueur)
 print("ordinateur: ", Pointsordinateur)
